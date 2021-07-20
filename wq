@@ -1,0 +1,16 @@
+-- by wunbo, was done quickly but u get the idea
+_G.activate = true -- make this 'false' to turn off printing %
+while _G.activate == true do 
+for i, v in pairs(game.Workspace:GetChildren()) do
+    if(v.Name == "Basketball") and _G.activate == true then
+        v.shooting.Changed:Connect(function()
+            local value = v.shooting.Value
+            if(value == true) then
+                wait(1)
+                print(v.shooting.player.Value .. ": " .. string.format("%.1f", v.shooting.accuracy.Value) .. "%  -- PERCENT")                
+            end
+        end)
+    end
+end
+wait(10)
+end
